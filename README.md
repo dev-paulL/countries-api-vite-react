@@ -49,8 +49,8 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [https://dev-paull.github.io/countries-api-react-vite/](https://dev-paull.github.io/countries-api-react-vite/)
+- Solution URL: [https://www.frontendmentor.io/solutions/country-api-react-tailwind-dUNZhveVaL](https://www.frontendmentor.io/solutions/country-api-react-tailwind-dUNZhveVaL)
+- Live Site URL: [https://dev-paull.github.io/countries-api-vite-react/](https://dev-paull.github.io/countries-api-vite-react/)
 
 ## My process
 

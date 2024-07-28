@@ -1,7 +1,7 @@
 {
   "name": "country-api-vite-react",
   "version": "0.0.0",
-  "homepage" : "https://dev-paull.github.io/countries-api-react-vite",
+  "homepage" : "https://dev-paull.github.io/countries-api-vite-react",
   "private": true,
   "type": "module",
   "scripts": {
