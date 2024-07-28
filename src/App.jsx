@@ -8,7 +8,7 @@ import Header from "./components/Header";
 // Creating router with react-router-dom
 const router = createBrowserRouter([
   {
-    path: "/countries-api-react-vite/",
+    path: "/countries-api-vite-react/",
     element: (
       <>
         <Header />
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/countries-api-react-vite/:countryName",
+    path: "/countries-api-vite-react/:countryName",
     element: (
       <>
         <Header />

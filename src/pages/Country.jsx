@@ -63,7 +63,7 @@ export default function Country() {
       }`}
     >
       <Link
-        to={"/countries-api-react-vite/"}
+        to={"/countries-api-vite-react/"}
         className={`self-start py-1 px-8 border-2 justify-center rounded-lg block w-max ml-8 ${
           isDarkMode ? "bg-darkBlue" : "bg-veryLightGrayLightModeBackground"
         }`}
@@ -149,7 +149,7 @@ export default function Country() {
                 country.borders.map((border) => (
                   <Link
                     key={border}
-                    to={`/countries-api-react-vite/${filterString(
+                    to={`/countries-api-vite-react/${filterString(
                       getBorderCountryName(border)
                     )}`}
                   >

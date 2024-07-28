@@ -55,7 +55,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 ## My process
 
 - 🔎 Analyzed the screenshots to identify the different pages, components and features.
-- ✍️ Wrote down everything I thought I would need to learn to complete this challenge. *(This includes almost everything about React since it's my first project with it, but I knew I would need state, context, router, creating components & something to fetch my data)*
+- ✍️ Wrote down everything I thought I would need to learn to complete this challenge. *(This includes almost everything about React **since it's my first project with it**, but I knew I would need state, context, router, creating components & something to fetch my data)*
 - 📄 Read a lot of documentation about different methods and videos/guides to have multiple explanations.
 - 🏠 Built the Homepage, then extracted the components such as header, search bar, region selector, country cards. I started by using a small sample of fake content, then installed **axios** to fetch the data from my json file.
 - 📄 Built the Country page, then installed **react-router-dom** to create a router and define my paths.
