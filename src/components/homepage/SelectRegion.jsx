@@ -2,11 +2,7 @@ export default function SelectRegion({ onChange, value, isDarkMode }) {
   return (
     <select
       aria-label="Select region"
-      className={`mt-4 sm:mt-0 text-sm p-2 rounded-md ${
-        isDarkMode
-          ? "bg-darkBlue text-white"
-          : "bg-white text-veryDarkBlueLightModeText"
-      }`}
+      className={`mt-4 sm:mt-0 text-sm p-2 rounded-md ${isDarkMode ? "bg-darkBlue text-white" : "bg-white text-veryDarkBlueLightModeText"}`}
       name="select-region"
       id="select-region"
       onChange={onChange}

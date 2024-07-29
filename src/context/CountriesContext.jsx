@@ -9,15 +9,9 @@ export const CountriesProvider = ({ children }) => {
 
   useEffect(() => {
     setCountries(allCountries);
-  });
+  }, [allCountries]);
 
-  return (
-    <CountriesContext.Provider
-      value={{ countries, setCountries, error, loading }}
-    >
-      {children}
-    </CountriesContext.Provider>
-  );
+  return <CountriesContext.Provider value={{ countries, setCountries, error, loading }}>{children}</CountriesContext.Provider>;
 };
 
 export default CountriesContext;

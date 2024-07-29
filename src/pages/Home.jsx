@@ -25,11 +25,7 @@ export default function Home() {
   const displayContent = useMemo(() => {
     return countries.filter(
       (country) =>
-        (selectedRegion === "default" ||
-          filterString(country.region).includes(
-            filterString(selectedRegion)
-          )) &&
-        filterString(country.name).includes(filterString(searchCountry))
+        (selectedRegion === "default" || filterString(country.region).includes(filterString(selectedRegion))) && filterString(country.name).includes(filterString(searchCountry))
     );
   }, [countries, selectedRegion, searchCountry]);
 
@@ -37,45 +33,25 @@ export default function Home() {
     <>
       <main
         className={`min-h-full min-w-full p-10 ${
-          isDarkMode
-            ? "bg-veryDarkBlueDarkModeBackground text-white"
-            : "bg-veryLightGrayLightModeBackground text-veryDarkBlueLightModeText"
+          isDarkMode ? "bg-veryDarkBlueDarkModeBackground text-white" : "bg-veryLightGrayLightModeBackground text-veryDarkBlueLightModeText"
         }`}
       >
         <div className="min-w-full flex justify-between align-center flex-wrap">
-          <Searchbar
-            isDarkMode={isDarkMode}
-            onChange={handleTextChange}
-            value={searchCountry}
-          />
-          <SelectRegion
-            isDarkMode={isDarkMode}
-            onChange={handleRegionChange}
-            value={selectedRegion}
-          />
+          <Searchbar isDarkMode={isDarkMode} onChange={handleTextChange} value={searchCountry} />
+          <SelectRegion isDarkMode={isDarkMode} onChange={handleRegionChange} value={selectedRegion} />
         </div>
 
         {loading && <Loading />}
         {error && <Error />}
 
         {!loading && !error && (
-          <section
-            className={`min-w-full gap-x-20 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 grid-rows-auto justify-items-center `}
-          >
+          <section className={`min-w-full gap-x-20 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 grid-rows-auto justify-items-center `}>
             {displayContent.map((country) => (
-              /* I checked the .json file at the start of this project and sometimes we dont have flags but flag, 
-              and either one or two images paths. I needed to do a bit of filtering here too */
+              /* Sometimes we dont have flags but flag, and either one or two images paths. I needed to do a bit of filtering here too */
 
-              <Link
-                to={filterString(country.name)}
-                key={`${country.name + country.capital}`}
-              >
+              <Link to={filterString(country.name)} key={`${country.name + country.capital}`}>
                 <CountryCard
-                  img={
-                    country.flags
-                      ? country.flags.svg || country.flag
-                      : country.flag
-                  }
+                  img={country.flags ? country.flags.svg || country.flag : country.flag}
                   name={country.name}
                   population={country.population}
                   region={country.region}

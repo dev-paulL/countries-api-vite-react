@@ -19,7 +19,7 @@ export const useFetchAllCountries = () => {
       setLoading(false);
     }
   };
-  
+
   useEffect(() => {
     fetchAllCountries();
   }, []);
