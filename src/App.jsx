@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "../src/pages/Home";
-import Country from "../src/pages/Country";
+import Home from "./pages/Home";
+import Country from "./pages/Country";
 import "./global.css";
-import { ThemeProvider } from "./ThemeContext";
-import Header from "./components/Header";
+import { ThemeProvider } from "./context/ThemeContext";
+import Header from "./components/ui/header/Header";
+import { CountriesProvider } from "./context/CountriesContext";
 
 // Creating router with react-router-dom
 const router = createBrowserRouter([
@@ -30,8 +31,10 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <RouterProvider router={router}></RouterProvider>
-    </ThemeProvider>
+    <CountriesProvider>
+      <ThemeProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </ThemeProvider>
+    </CountriesProvider>
   );
 }

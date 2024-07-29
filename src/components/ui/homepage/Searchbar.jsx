@@ -33,6 +33,7 @@ export default function Searchbar({ onChange, value, isDarkMode }) {
         placeholder="Search for a country..."
         onChange={onChange}
         value={value}
+        aria-label="Search for a country"
       />
     </div>
   );

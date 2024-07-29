@@ -1,21 +1,6 @@
-import ThemeContext from "../ThemeContext";
-import { useContext } from "react";
-
-export default function Header() {
-  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
-
+export default function DarkModeButton({isDarkMode, onClick}) {
   return (
-    <header
-      className={`max-w-full flex justify-between items-center py-5 px-5 ${
-        isDarkMode
-          ? "bg-darkBlue text-white"
-          : "bg-white text-veryDarkBlueLightModeText"
-      } `}
-    >
-      <h1 className="lg:text-xl md:text-sm text-xs sm:text-xs font-extrabold">
-        Where in the world?
-      </h1>
-      <button className="flex items-center" onClick={toggleTheme}>
+    <button className="flex items-center" onClick={onClick}>
         {!isDarkMode && (
           <svg
             className="mr-2"
@@ -57,6 +42,5 @@ export default function Header() {
           {isDarkMode ? "Light mode" : "Dark mode"}
         </p>
       </button>
-    </header>
-  );
+  )
 }

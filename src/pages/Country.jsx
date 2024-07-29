@@ -1,52 +1,31 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import ThemeContext from "../ThemeContext";
-
-// I used this a lot, less typing 👍
-const filterString = (str) => str.toLowerCase().replace(/\s/g, "");
+import ThemeContext from "../context/ThemeContext";
+import { filterString } from "../utils/filterString";
+import CountriesContext from "../context/CountriesContext";
+import BackButton from "../components/ui/detailspage/BackButton";
 
 // Country Page
 export default function Country() {
   const { countryName } = useParams(); // Extract countryName from the URL
-  const [country, setCountry] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [allCountries, setAllCountries] = useState([]);
+  const [ country, setCountry] = useState([]);
+  const { countries, loading, error } = useContext(CountriesContext);
   const { isDarkMode } = useContext(ThemeContext);
 
-  // "borders": ["MNE", "GRC", "MKD", "UNK"],
-  // Uses axios to fetch all the countries again to be able to find the border countries full name
+  const getCountryData = () => {
+    return countries.find((c) => filterString(c.name) === filterString(countryName));
+  };
+
   useEffect(() => {
-    const fetchAllCountries = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get("./data.json");
-        const data = response.data;
-        setAllCountries(data);
-        // Then store the current country data as a separate state.
-        const countryData = data.find(
-          (c) => filterString(c.name) === filterString(countryName)
-        );
-        setCountry(countryData);
-      } catch (error) {
-        // If something goes wrong with the fetching OR the state setting
-        console.error("Error fetching country data", error);
-        // Keep track of error in the state
-        setError("Something went wrong, please try again...");
-      } finally {
-        // If everything goes right
-        setLoading(false);
-      }
-    };
-    fetchAllCountries();
+    console.log(country, countryName);
+    setCountry(getCountryData);
   }, [countryName]);
 
   // "borders": ["MNE", "GRC", "MKD", "UNK"],
   // Finds the border countries full names in the data fetched above
   const getBorderCountryName = (borderCode) => {
-    const borderCountry = allCountries.find((c) => c.alpha3Code === borderCode);
+    const borderCountry = countries.find((c) => c.alpha3Code === borderCode);
     return borderCountry ? borderCountry.name : borderCode;
   };
 
@@ -62,37 +41,8 @@ export default function Country() {
           : "bg-veryLightGrayLightModeBackground text-veryDarkBlueLightModeText"
       }`}
     >
-      <Link
-        to={"/countries-api-vite-react/"}
-        className={`self-start py-1 px-8 border-2 justify-center rounded-lg block w-max ml-8 ${
-          isDarkMode ? "bg-darkBlue" : "bg-veryLightGrayLightModeBackground"
-        }`}
-      >
-        <svg
-          fill="#000000"
-          version="1.1"
-          id="Capa_1"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink"
-          width="1rem"
-          height="1rem"
-          viewBox="0 0 400.004 400.004"
-          xmlSpace="preserve"
-          className={`mr-2 inline-block ${
-            isDarkMode ? "fill-white" : "fill-veryDarkBlueDarkModeBackground"
-          }`}
-        >
-          <g>
-            <path
-              d="M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757
-		c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072
-		c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315
-		C400.004,190.438,392.251,182.686,382.688,182.686z"
-            />
-          </g>
-        </svg>
-        Back
-      </Link>
+      
+      <BackButton isDarkMode={isDarkMode} />
 
       <article
         className={`flex flex-col md:flex-row gap-10 min-h-full items-center p-8`}
