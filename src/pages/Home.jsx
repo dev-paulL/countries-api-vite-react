@@ -1,11 +1,12 @@
-import Searchbar from "../components/ui/homepage/Searchbar";
-import SelectRegion from "../components/ui/homepage/SelectRegion";
-import CountryCard from "../components/ui/homepage/CountryCard";
+import Searchbar from "../components/homepage/Searchbar";
+import SelectRegion from "../components/homepage/SelectRegion";
+import CountryCard from "../components/homepage/CountryCard";
 import { useState, useContext, useMemo } from "react";
 import { Link } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
 import CountriesContext from "../context/CountriesContext";
 import { filterString } from "../utils/filterString";
+import Loading from "../components/Loading";
 
 export default function Home() {
   const [searchCountry, setSearchCountry] = useState("");
@@ -25,7 +26,9 @@ export default function Home() {
     return countries.filter(
       (country) =>
         (selectedRegion === "default" ||
-          filterString(country.region).includes(filterString(selectedRegion))) &&
+          filterString(country.region).includes(
+            filterString(selectedRegion)
+          )) &&
         filterString(country.name).includes(filterString(searchCountry))
     );
   }, [countries, selectedRegion, searchCountry]);
@@ -52,15 +55,16 @@ export default function Home() {
           />
         </div>
 
-        {loading && <p>Loading...</p>}
-        {error && <p>Something went wrong, please try again...</p>}
+        {loading && <Loading />}
+        {error && <Error />}
 
         {!loading && !error && (
           <section
             className={`min-w-full gap-x-20 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 grid-rows-auto justify-items-center `}
           >
             {displayContent.map((country) => (
-              /* Custom component, I checked the .json file at the start of this project and sometimes we dont have flags but flag, and either one or two images paths. I needed to do a bit of filtering here too */
+              /* I checked the .json file at the start of this project and sometimes we dont have flags but flag, 
+              and either one or two images paths. I needed to do a bit of filtering here too */
 
               <Link
                 to={filterString(country.name)}

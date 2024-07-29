@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Country from "./pages/Country";
 import "./global.css";
 import { ThemeProvider } from "./context/ThemeContext";
-import Header from "./components/ui/header/Header";
+import Header from "./components/header/Header";
 import { CountriesProvider } from "./context/CountriesContext";
 
 // Creating router with react-router-dom

@@ -4,17 +4,21 @@ import { Link } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
 import { filterString } from "../utils/filterString";
 import CountriesContext from "../context/CountriesContext";
-import BackButton from "../components/ui/detailspage/BackButton";
+import BackButton from "../components/detailspage/BackButton";
+import Loading from "../components/Loading";
+import CountryDetailsItem from "../components/detailspage/CountryDetailsItem";
 
 // Country Page
 export default function Country() {
   const { countryName } = useParams(); // Extract countryName from the URL
-  const [ country, setCountry] = useState([]);
+  const [country, setCountry] = useState([]);
   const { countries, loading, error } = useContext(CountriesContext);
   const { isDarkMode } = useContext(ThemeContext);
 
   const getCountryData = () => {
-    return countries.find((c) => filterString(c.name) === filterString(countryName));
+    return countries.find(
+      (c) => filterString(c.name) === filterString(countryName)
+    );
   };
 
   useEffect(() => {
@@ -29,8 +33,8 @@ export default function Country() {
     return borderCountry ? borderCountry.name : borderCode;
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <Loading />;
+  if (error) return <Error />;
   if (!country) return <p>Country not found.</p>;
 
   return (
@@ -41,7 +45,6 @@ export default function Country() {
           : "bg-veryLightGrayLightModeBackground text-veryDarkBlueLightModeText"
       }`}
     >
-      
       <BackButton isDarkMode={isDarkMode} />
 
       <article
@@ -58,38 +61,25 @@ export default function Country() {
             {country.name}
           </h2>
           <div className="lg:col-start-1 lg:row-start-2">
-            <li>
-              <span className="font-semibold">Native Name:</span>{" "}
-              {country.nativeName}
-            </li>
-            <li>
-              <span className="font-semibold">Population:</span>{" "}
-              {country.population}
-            </li>
-            <li>
-              <span className="font-semibold">Region:</span> {country.region}
-            </li>
-            <li>
-              <span className="font-semibold">Sub Region:</span>{" "}
-              {country.subregion}
-            </li>
-            <li>
-              <span className="font-semibold">Capital:</span> {country.capital}
-            </li>
+            <CountryDetailsItem
+              category="Native Name:"
+              content={country.nativeName}
+            />
+            <CountryDetailsItem
+              category="Population:"
+              content={country.population}
+            />
+            <CountryDetailsItem category="Region:" content={country.region} />
+            <CountryDetailsItem
+              category="Sub Region:"
+              content={country.subregion}
+            />
+            <CountryDetailsItem category="Capital:" content={country.capital} />
           </div>
-          <div className="lg:col-start-2 lg:row-start-2 lg:justify-self-start">
-            <li className="mt-8 lg:mt-0">
-              <span className="font-semibold">Top Level Domain:</span>{" "}
-              {country.topLevelDomain}
-            </li>
-            <li>
-              <span className="font-semibold">Currencies:</span>{" "}
-              {country.currencies?.map((currency) => currency.name).join(", ")}
-            </li>
-            <li>
-              <span className="font-semibold">Languages:</span>{" "}
-              {country.languages?.map((language) => language.name).join(", ")}
-            </li>
+          <div className="lg:col-start-2 lg:row-start-2 lg:justify-self-start mt-8 lg:mt-0">
+          <CountryDetailsItem category="Top Level Domain:" content={country.topLevelDomain}/>
+          <CountryDetailsItem category="Currencies:" content={country.currencies?.map((currency) => currency.name).join(", ")}/>
+          <CountryDetailsItem category="Languages:" content={country.languages?.map((language) => language.name).join(", ")}/>
           </div>
 
           <div className="lg:col-start-1 lg:row-start-3 lg:col-span-2">
