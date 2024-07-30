@@ -71,7 +71,9 @@ Run it locally?
 
 - ➕ Added `CountriesContext` to share all the data between pages and components.
 - 🧹 Cleaned up my code by extracting more components and functions to sorted separate files.
+- Changed `createBrowserRouter()` to `createHashRouter()` so the routing works on Github Pages *(GitHub pages does not support routing for single page apps)* => for example : [https://dev-paull.github.io/countries-api-vite-react/#/mongolia](https://dev-paull.github.io/countries-api-vite-react/#/mongolia)
 - 👉 Coming soon: Better UI and animations
+
 ### What I learned
 
 - React: Component creation, state management with `useState`, `useEffect`, `useMemo`
