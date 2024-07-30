@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 const ThemeContext = createContext();
 
-// Keep track of darkmode state, returns a context provider to wrap around the entire application
+// Keep track of darkmode state
 export const ThemeProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
 

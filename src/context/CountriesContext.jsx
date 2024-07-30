@@ -3,6 +3,7 @@ import { useFetchAllCountries } from "../hooks/useFetchAllCountries";
 
 const CountriesContext = createContext();
 
+// Keep track of countries list
 export const CountriesProvider = ({ children }) => {
   const { error, allCountries, loading } = useFetchAllCountries();
   const [countries, setCountries] = useState([]);

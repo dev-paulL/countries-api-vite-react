@@ -17,9 +17,9 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - Toggle the color scheme between light and dark mode *(optional)*
 </details>
 
-### Screenshot
+### Screenshots
 
-<details open>
+<details>
 <summary>Mobile Details page</summary>
 
 ![](./mobile_details_darkmode.png)
@@ -64,10 +64,15 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - ⚙️ Installed **gh-pages** and set up the config files so that the app can be built and deployed to Github Pages.
 - 🪳 Debugged and tested on multiple devices to make sure the features are available.
 
+#### Updates
+
+- ➕ Added `CountriesContext` to share all the data between pages and components.
+- 🧹 Cleaned up my code by extracting more components and functions to sorted separate files.
+- 👉 Coming soon: Better UI and animations
 ### What I learned
 
-- React Basics : Component creation, state management with `useState` and `useEffect`.
-- Context API : Creating and using context providers to manage global state.
+- React: Component creation, state management with `useState`, `useEffect`, `useMemo`
+- Context: Creating and using context providers to manage global state.
 - Routing: Setting up and managing routes with `react-router-dom`.
 - Data Fetching: Using `axios` to fetch data from an API or local JSON file.
 - Styling: Applying styles for different screen sizes and implementing themes with **TailwindCSS**.
@@ -75,8 +80,11 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - Deployment: Building and deploying a React application to GitHub Pages.
 - Testing and Debugging: Ensuring cross-device compatibility and fixing bugs.
 
-I also read about `useMemo` and `useCallback` (that I think I should use here), Tanstack (react query), data pagination, local storage. 
+I also read about `useMemo` and `useCallback`, Tanstack (react query), data pagination, local storage, redux. 
 
 I plan on diving deeper into useMemo and useCallback, React Query, component structure, error handling, custom hooks, Redux, Suspense mode and accessibility.
 
+
 **Any feedback welcome**
+
+
