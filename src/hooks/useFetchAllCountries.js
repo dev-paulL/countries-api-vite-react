@@ -9,7 +9,7 @@ export const useFetchAllCountries = () => {
   const fetchAllCountries = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("./data.json");
+      const response = await axios.get("/countries-api-vite-react/data.json");
       const data = response.data;
       setAllCountries(data);
     } catch (error) {

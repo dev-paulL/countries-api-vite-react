@@ -10,7 +10,7 @@ import CountryDetailsFullContent from "../components/detailspage/CountryDetailsF
 
 // Country Page
 export default function Country() {
-  const { countryName } = useParams(); // Extract countryName from the URL
+  const { countryName } = useParams();
   const [country, setCountry] = useState(null);
   const { countries, loading, error } = useContext(CountriesContext);
   const { isDarkMode } = useContext(ThemeContext);

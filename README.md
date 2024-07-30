@@ -52,6 +52,9 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - Solution URL: [https://www.frontendmentor.io/solutions/country-api-react-tailwind-dUNZhveVaL](https://www.frontendmentor.io/solutions/country-api-react-tailwind-dUNZhveVaL)
 - Live Site URL: [https://dev-paull.github.io/countries-api-vite-react/](https://dev-paull.github.io/countries-api-vite-react/)
 
+Run it locally? 
+- `npm install` 
+- `npm run dev`
 ## My process
 
 - 🔎 Analyzed the screenshots to identify the different pages, components and features.

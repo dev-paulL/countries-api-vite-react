@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function BackButton({ isDarkMode }) {
   return (
     <Link
-      to={"/countries-api-vite-react/"}
+      to={"/"}
       className={`self-start py-1 px-8 border-2 justify-center rounded-lg block w-max ml-8 ${isDarkMode ? "bg-darkBlue" : "bg-veryLightGrayLightModeBackground"}`}
     >
       <svg

@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Country from "./pages/Country";
 import "./global.css";
@@ -7,21 +7,19 @@ import Header from "./components/header/Header";
 import { CountriesProvider } from "./context/CountriesContext";
 
 // Creating router with react-router-dom
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: "/countries-api-vite-react/",
+    path: "/",
     element: (
       <>
-        <Header />
         <Home />
       </>
     ),
   },
   {
-    path: "/countries-api-vite-react/:countryName",
+    path: "/:countryName",
     element: (
       <>
-        <Header />
         <Country />
       </>
     ),
@@ -31,10 +29,11 @@ const router = createBrowserRouter([
 
 export default function App() {
   return (
-    <CountriesProvider>
-      <ThemeProvider>
+    <ThemeProvider>
+      <CountriesProvider>
+        <Header />
         <RouterProvider router={router}></RouterProvider>
-      </ThemeProvider>
-    </CountriesProvider>
+      </CountriesProvider>
+    </ThemeProvider>
   );
 }

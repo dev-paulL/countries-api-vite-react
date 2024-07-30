@@ -26,7 +26,7 @@ export default function CountryDetailsFullContent({ country, countries }) {
         <ul className="flex flex-row flex-wrap">
           {country.borders?.length > 0 ? (
             country.borders.map((border) => (
-              <Link key={border} to={`/countries-api-vite-react/${filterString(getBorderCountryName(border, countries))}`}>
+              <Link key={border} to={`/${filterString(getBorderCountryName(border, countries))}`}>
                 <li className="border-2 p-2 m-1">{getBorderCountryName(border, countries)}</li>
               </Link>
             ))
