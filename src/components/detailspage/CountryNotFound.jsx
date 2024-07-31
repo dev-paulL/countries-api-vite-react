@@ -15,7 +15,7 @@ export default function CountryNotFound() {
     >
       <BackButton />
       <Lottie animationData={animation_error} className="max-w-96 mt-10" />
-      <p className="text-2xl mt-2 font-bold">Sorry, we didn't find this country 😟</p>
+      <p className="text-2xl mt-2 font-bold text-center">Sorry, we couldn't find this country 😟</p>
     </main>
   );
 }

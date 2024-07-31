@@ -44,7 +44,7 @@ export default function Home() {
       {error && <Error />}
 
       {!loading && !error && (
-        <section className={`min-w-full gap-4 p-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-items-center mx-auto`}>
+        <section className={`min-w-full gap-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-items-center mx-auto`}>
           {displayContent.map((country) => (
             /* Sometimes we dont have flags but flag, and either one or two images paths. I needed to do a bit of filtering here too */
             <Link to={filterString(country.name)} key={`${country.name + country.capital}`}>
