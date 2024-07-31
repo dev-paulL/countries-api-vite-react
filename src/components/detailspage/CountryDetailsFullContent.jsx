@@ -27,7 +27,7 @@ export default function CountryDetailsFullContent({ country, countries }) {
           {country.borders?.length > 0 ? (
             country.borders.map((border) => (
               <Link key={border} to={`/${filterString(getBorderCountryName(border, countries))}`}>
-                <li className="border-2 p-2 m-1">{getBorderCountryName(border, countries)}</li>
+                <li className="border-2 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] p-2 m-1">{getBorderCountryName(border, countries)}</li>
               </Link>
             ))
           ) : (

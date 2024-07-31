@@ -1,5 +1,21 @@
-import React from "react";
+import Lottie from "lottie-react";
+import React, { useContext } from "react";
+import animation_error from "../../../public/animation_error.json";
+import ThemeContext from "../../context/ThemeContext";
+import BackButton from "./BackButton";
 
 export default function CountryNotFound() {
-  return <p>Country not found.</p>;
+  const { isDarkMode } = useContext(ThemeContext);
+
+  return (
+    <main
+      className={`min-h-svh items-center flex flex-col max-w-full p-10 ${
+        isDarkMode ? `bg-veryDarkBlueDarkModeBackground text-white` : "bg-veryLightGrayLightModeBackground text-darkBlue"
+      }`}
+    >
+      <BackButton />
+      <Lottie animationData={animation_error} className="max-w-96 mt-10" />
+      <p className="text-2xl mt-2 font-bold">Sorry, we didn't find this country 😟</p>
+    </main>
+  );
 }

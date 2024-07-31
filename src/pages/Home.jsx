@@ -30,39 +30,36 @@ export default function Home() {
   }, [countries, selectedRegion, searchCountry]);
 
   return (
-    <>
-      <main
-        className={`min-h-full min-w-full p-10 ${
-          isDarkMode ? "bg-veryDarkBlueDarkModeBackground text-white" : "bg-veryLightGrayLightModeBackground text-veryDarkBlueLightModeText"
-        }`}
-      >
-        <div className="min-w-full flex justify-between align-center flex-wrap">
-          <Searchbar isDarkMode={isDarkMode} onChange={handleTextChange} value={searchCountry} />
-          <SelectRegion isDarkMode={isDarkMode} onChange={handleRegionChange} value={selectedRegion} />
-        </div>
+    <main
+      className={`min-h-screen min-w-full p-10 ${
+        isDarkMode ? "bg-veryDarkBlueDarkModeBackground text-white" : "bg-veryLightGrayLightModeBackground text-veryDarkBlueLightModeText"
+      }`}
+    >
+      <div className="min-w-full flex justify-between align-center flex-wrap">
+        <Searchbar isDarkMode={isDarkMode} onChange={handleTextChange} value={searchCountry} />
+        <SelectRegion isDarkMode={isDarkMode} onChange={handleRegionChange} value={selectedRegion} />
+      </div>
 
-        {loading && <Loading />}
-        {error && <Error />}
+      {loading && <Loading />}
+      {error && <Error />}
 
-        {!loading && !error && (
-          <section className={`min-w-full gap-x-20 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 grid-rows-auto justify-items-center `}>
-            {displayContent.map((country) => (
-              /* Sometimes we dont have flags but flag, and either one or two images paths. I needed to do a bit of filtering here too */
-
-              <Link to={filterString(country.name)} key={`${country.name + country.capital}`}>
-                <CountryCard
-                  img={country.flags ? country.flags.svg || country.flag : country.flag}
-                  name={country.name}
-                  population={country.population}
-                  region={country.region}
-                  capital={country.capital}
-                  isDarkMode={isDarkMode}
-                />
-              </Link>
-            ))}
-          </section>
-        )}
-      </main>
-    </>
+      {!loading && !error && (
+        <section className={`min-w-full gap-4 p-4 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-items-center mx-auto`}>
+          {displayContent.map((country) => (
+            /* Sometimes we dont have flags but flag, and either one or two images paths. I needed to do a bit of filtering here too */
+            <Link to={filterString(country.name)} key={`${country.name + country.capital}`}>
+              <CountryCard
+                img={country.flags ? country.flags.svg || country.flag : country.flag}
+                name={country.name}
+                population={country.population}
+                region={country.region}
+                capital={country.capital}
+                isDarkMode={isDarkMode}
+              />
+            </Link>
+          ))}
+        </section>
+      )}
+    </main>
   );
 }

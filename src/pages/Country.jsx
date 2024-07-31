@@ -7,7 +7,7 @@ import BackButton from "../components/detailspage/BackButton";
 import Loading from "../components/Loading";
 import CountryNotFound from "../components/detailspage/CountryNotFound";
 import CountryDetailsFullContent from "../components/detailspage/CountryDetailsFullContent";
-
+import { motion } from "framer-motion";
 // Country Page
 export default function Country() {
   const { countryName } = useParams();
@@ -24,14 +24,17 @@ export default function Country() {
   if (!country) return <CountryNotFound />;
 
   return (
-    <section className={`min-h-screen pt-8 ${isDarkMode ? "bg-veryDarkBlueDarkModeBackground text-white" : "bg-veryLightGrayLightModeBackground text-veryDarkBlueLightModeText"}`}>
-      <BackButton isDarkMode={isDarkMode} />
+    <main>
+      <section
+        className={`min-h-screen pt-8 ${isDarkMode ? "bg-veryDarkBlueDarkModeBackground text-white" : "bg-veryLightGrayLightModeBackground text-veryDarkBlueLightModeText"}`}
+      >
+        <BackButton isDarkMode={isDarkMode} />
 
-      <article className={`flex flex-col md:flex-row gap-10 min-h-full items-center p-8`}>
-        <img className="md:w-6/12 lg:w-4/12" src={country.flags?.svg || country.flag} alt={country.name} />
-
-        <CountryDetailsFullContent country={country} countries={countries} />
-      </article>
-    </section>
+        <article className={`flex flex-col md:flex-row gap-10 min-h-full items-center p-8`}>
+          <img src={country.flags?.svg || country.flag} alt={country.name} loading="lazy" />
+          <CountryDetailsFullContent country={country} countries={countries} />
+        </article>
+      </section>
+    </main>
   );
 }
