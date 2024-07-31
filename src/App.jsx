@@ -10,19 +10,11 @@ import { CountriesProvider } from "./context/CountriesContext";
 const router = createHashRouter([
   {
     path: "/",
-    element: (
-      <>
-        <Home />
-      </>
-    ),
+    element: <Home />,
   },
   {
     path: "/:countryName",
-    element: (
-      <>
-        <Country />
-      </>
-    ),
+    element: <Country />,
     errorElement: <div>This country doesn't exist</div>,
   },
 ]);

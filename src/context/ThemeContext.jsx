@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
@@ -10,6 +10,10 @@ export const ThemeProvider = ({ children }) => {
     setIsDarkMode((previousMode) => !previousMode);
   };
 
+  useEffect(() => {
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? setIsDarkMode(true) : setIsDarkMode(false);
+  }, []);
+  
   return <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 
