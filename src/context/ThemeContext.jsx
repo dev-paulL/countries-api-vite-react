@@ -13,7 +13,7 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     window.matchMedia("(prefers-color-scheme: dark)").matches ? setIsDarkMode(true) : setIsDarkMode(false);
   }, []);
-  
+
   return <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 

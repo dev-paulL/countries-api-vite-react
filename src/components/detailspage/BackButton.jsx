@@ -5,7 +5,7 @@ export default function BackButton({ isDarkMode }) {
   return (
     <Link
       to={"/"}
-      className={`self-start py-1 px-8 justify-center rounded-lg block w-max ml-8 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] ${isDarkMode ? "bg-darkBlue" : "bg-veryLightGrayLightModeBackground"}`}
+      className={`self-start py-1 px-8 justify-center rounded-lg block w-max ml-8 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] ${isDarkMode ? "bg-darkBlue text-white " : "bg-veryLightGrayLightModeBackground text-veryDarkBlueLightModeText"}`}
     >
       <svg
         fill="#000000"
