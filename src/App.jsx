@@ -1,10 +1,11 @@
-import { createBrowserRouter, createHashRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Country from "./pages/Country";
 import "./global.css";
 import { ThemeProvider } from "./context/ThemeContext";
 import Header from "./components/header/Header";
 import { CountriesProvider } from "./context/CountriesContext";
+import CountryNotFound from "./components/detailspage/CountryNotFound";
 
 // Creating router with react-router-dom
 const router = createHashRouter([
@@ -15,7 +16,7 @@ const router = createHashRouter([
   {
     path: "/:countryName",
     element: <Country />,
-    errorElement: <div>This country doesn't exist</div>,
+    errorElement: <CountryNotFound />,
   },
 ]);
 

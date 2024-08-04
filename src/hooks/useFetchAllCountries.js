@@ -10,8 +10,7 @@ export const useFetchAllCountries = () => {
     setLoading(true);
     try {
       const response = await axios.get("/countries-api-vite-react/data.json");
-      const data = response.data;
-      setAllCountries(data);
+      setAllCountries(response.data);
     } catch (error) {
       console.log("Error fetching countries", error);
       setError(true);
