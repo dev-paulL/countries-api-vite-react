@@ -13,7 +13,7 @@ export default function CountryNotFound() {
         isDarkMode ? `bg-veryDarkBlueDarkModeBackground text-white` : "bg-veryLightGrayLightModeBackground text-darkBlue"
       }`}
     >
-      <BackButton />
+      <BackButton isDarkMode={isDarkMode} />
       <Lottie animationData={animation_error} className="max-w-96 mt-10" />
       <p className="text-2xl mt-2 font-bold text-center">Sorry, we couldn't find this country 😟</p>
     </main>

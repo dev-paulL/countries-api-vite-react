@@ -2,7 +2,7 @@
 export default function CountryCard({ img, name, population, region, capital, isDarkMode }) {
   return (
     <article
-      className={`shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] grid col-start-auto my-5 min-w-72 w-72 h-80 rounded-md ${
+      className={`shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] grid col-start-auto my-5 min-w-72 w-72 h-80 rounded-md hover:scale-105 transition ease-in-out delay-150 ${
         isDarkMode ? "bg-darkBlue text-white" : "bg-white text-veryDarkBlueLightModeText"
       }`}
     >

@@ -33,7 +33,7 @@ export default function Country() {
         <BackButton isDarkMode={isDarkMode} />
 
         <article className={`flex flex-col md:flex-row gap-10 min-h-full items-center p-8`}>
-          <img className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-md md:w-6/12 lg:w-4/12" src={country.flags?.svg || country.flag} alt={country.name} />
+          <img className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-md md:w-6/12 lg:w-4/12" src={country.flags?.svg || country.flag} alt={country.name} loading="lazy"/>
           <CountryDetailsFullContent country={country} countries={countries} />
         </article>
       </section>
